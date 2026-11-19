@@ -3,10 +3,10 @@ options:
   bundleIdPrefix: com.iletai
   xcodeVersion: "26.0"
   deploymentTarget:
-    iOS: "18.0"
+    iOS: "26.0"
   createIntermediateGroups: true
   groupSortPosition: top
-  developmentLanguage: vi
+  developmentLanguage: en
 
 settings:
   base:
