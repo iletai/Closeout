@@ -28,6 +28,13 @@ struct JobsView: View {
             }
             .background(.paper)
             .navigationTitle("Jobs")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink { SettingsView() } label: { Image(systemName: "gearshape") }
+                        .accessibilityLabel("Settings")
+                        .accessibilityIdentifier("settingsButton")
+                }
+            }
             .navigationDestination(for: Job.self) { JobDetailView(job: $0) }
             .sheet(isPresented: $showingNewJob) {
                 JobFormView(job: nil) { path.append($0) }
