@@ -114,4 +114,27 @@ final nonisolated class JobFlowUITests: XCTestCase {
         shot.lifetime = .keepAlways
         add(shot)
     }
+
+    @MainActor
+    func testCreateJobThenPreviewAndExportReport() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-closeoutResetData", "-closeoutUITesting"]
+        app.launch()
+
+        app.buttons["logFirstJobButton"].tap()
+        let client = app.textFields["clientNameField"]
+        XCTAssertTrue(client.waitForExistence(timeout: 5))
+        client.tap()
+        client.typeText("Report Client")
+        app.buttons["saveJobButton"].tap()
+
+        app.buttons["previewReportButton"].tap()
+        XCTAssertTrue(app.staticTexts["Page 1 of 1"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.buttons["shareReportButton"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["exportReportButton"].isEnabled)
+        let shot = XCTAttachment(screenshot: app.screenshot())
+        shot.name = "report-preview"
+        shot.lifetime = .keepAlways
+        add(shot)
+    }
 }
