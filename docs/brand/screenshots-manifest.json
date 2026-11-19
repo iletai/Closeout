@@ -1,50 +1,56 @@
 [
   {
-    "screenshot": "raw/01-home.png",
-    "title": "Transform Your Sleep",
-    "subtitle": "AI-powered sleep experiments",
-    "gradient": "purple-night",
+    "screenshot": "docs/brand/raw/en-US/01-jobs.png",
+    "title": "Every job in one place",
+    "subtitle": "Open and closed, with totals",
+    "gradient_custom": "#D4500F,#C2410C,#9A3309",
     "device": "iphone-17-pro",
-    "filename": "01-home.png"
+    "size_key": "6.9-alt",
+    "filename": "01-jobs.png"
   },
   {
-    "screenshot": "raw/02-stats.png",
-    "title": "Deep Insights",
-    "subtitle": "Understand your sleep patterns",
-    "gradient": "teal-ocean",
+    "screenshot": "docs/brand/raw/en-US/02-job-detail.png",
+    "title": "Photo proof, before and after",
+    "subtitle": "Captions and tags on every shot",
+    "gradient_custom": "#222D38,#12181F,#0B0F14",
     "device": "iphone-17-pro",
-    "filename": "02-stats.png"
+    "size_key": "6.9-alt",
+    "filename": "02-job-detail.png"
   },
   {
-    "screenshot": "raw/03-detail.png",
-    "title": "Every Detail Matters",
-    "subtitle": "Hour-by-hour breakdown",
-    "gradient": "rose-gold",
+    "screenshot": "docs/brand/raw/en-US/03-receipt.png",
+    "title": "Scan receipts in seconds",
+    "subtitle": "Merchant, date and total filled in",
+    "gradient_custom": "#3A7076,#2F5D62,#23474B",
     "device": "iphone-17-pro",
-    "filename": "03-detail.png"
+    "size_key": "6.9-alt",
+    "filename": "03-receipt.png"
   },
   {
-    "screenshot": "raw/04-settings.png",
-    "title": "Your Preferences",
-    "subtitle": "Personalized for you",
-    "gradient": "morning-sky",
+    "screenshot": "docs/brand/raw/en-US/04-report.png",
+    "title": "A one-page job report",
+    "subtitle": "Share the PDF before you leave",
+    "gradient_custom": "#FFC24D,#FFB020,#E69A10",
     "device": "iphone-17-pro",
-    "filename": "04-settings.png"
+    "size_key": "6.9-alt",
+    "filename": "04-report.png"
   },
   {
-    "screenshot": "raw/05-onboarding.png",
-    "title": "Get Started in Seconds",
-    "subtitle": "No setup required",
-    "gradient": "coral-burst",
+    "screenshot": "docs/brand/raw/en-US/05-settings.png",
+    "title": "No account. Works offline.",
+    "subtitle": "Your jobs stay on your iPhone",
+    "gradient_custom": "#FFFFFF,#F7F5F0,#E9E4D8",
     "device": "iphone-17-pro",
-    "filename": "05-onboarding.png"
+    "size_key": "6.9-alt",
+    "filename": "05-settings.png"
   },
   {
-    "screenshot": "raw/06-paywall.png",
-    "title": "Unlock Everything",
-    "subtitle": "Premium features await",
-    "gradient": "deep-space",
+    "screenshot": "docs/brand/raw/en-US/06-paywall.png",
+    "title": "Go Pro when you need more",
+    "subtitle": "Unlimited photos and your logo",
+    "gradient_custom": "#D4500F,#C2410C,#9A3309",
     "device": "iphone-17-pro",
+    "size_key": "6.9-alt",
     "filename": "06-paywall.png"
   }
 ]
