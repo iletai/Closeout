@@ -137,4 +137,28 @@ final nonisolated class JobFlowUITests: XCTestCase {
         shot.lifetime = .keepAlways
         add(shot)
     }
+
+    @MainActor
+    func testSettingsShowsFreePlanAndOpensPaywall() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-closeoutResetData"]
+        app.launch()
+
+        // Settings is reachable from the empty Jobs screen.
+        app.buttons["settingsButton"].tap()
+        let pro = app.buttons["seeProPlansButton"]
+        XCTAssertTrue(pro.waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts["FREE PLAN"].exists)
+        let shot = XCTAttachment(screenshot: app.screenshot())
+        shot.name = "settings"
+        shot.lifetime = .keepAlways
+        add(shot)
+
+        pro.tap()
+        XCTAssertTrue(app.buttons["Close"].waitForExistence(timeout: 5))
+        let paywall = XCTAttachment(screenshot: app.screenshot())
+        paywall.name = "paywall"
+        paywall.lifetime = .keepAlways
+        add(paywall)
+    }
 }
