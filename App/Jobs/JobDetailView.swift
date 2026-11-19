@@ -68,6 +68,7 @@ struct JobDetailView: View {
     private var header: some View {
         VStack(alignment: .leading, spacing: Theme.Space.s) {
             Text(job.numberLabel).font(.coFigure(.caption)).foregroundStyle(.mutedInk)
+                .accessibilityLabel(Text("Job number \(job.number)"))
             Text(job.clientName).font(.coTitle).foregroundStyle(.ink)
             if !job.siteAddress.isEmpty {
                 Label(job.siteAddress, systemImage: "mappin.and.ellipse")
@@ -79,6 +80,7 @@ struct JobDetailView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.top, Theme.Space.l)
     }
 
     private var totalStrip: some View {
@@ -122,7 +124,7 @@ struct JobDetailView: View {
                                 .overlay(alignment: .bottomLeading) { KindBadge(kind: photo.kind) }
                         }
                         .buttonStyle(.plain)
-                        .accessibilityLabel(photo.caption.isEmpty ? "Photo" : photo.caption)
+                        .accessibilityLabel(photo.caption.isEmpty ? Text("Photo") : Text(photo.caption))
                         .accessibilityIdentifier("evidenceThumb")
                     }
                 }
@@ -140,7 +142,7 @@ struct JobDetailView: View {
                 Button { selectedReceipt = receipt } label: {
                     HStack(alignment: .top) {
                         VStack(alignment: .leading, spacing: Theme.Space.xs) {
-                            Text(receipt.merchantName.isEmpty ? "Receipt" : receipt.merchantName)
+                            (receipt.merchantName.isEmpty ? Text("Receipt") : Text(receipt.merchantName))
                                 .font(.coBody).foregroundStyle(.ink)
                             HStack {
                                 Text(receipt.purchasedAt, format: .dateTime.month(.abbreviated).day())

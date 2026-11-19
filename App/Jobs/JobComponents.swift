@@ -37,6 +37,7 @@ struct JobCard: View {
                 Text(job.clientName).font(.coCardTitle).foregroundStyle(.ink)
                 Spacer()
                 Text(job.numberLabel).font(.coFigure(.caption)).foregroundStyle(.mutedInk)
+                    .accessibilityLabel(Text("Job number \(job.number)"))
             }
             if !job.siteAddress.isEmpty {
                 Label(job.siteAddress, systemImage: "mappin.and.ellipse")

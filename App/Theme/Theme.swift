@@ -9,6 +9,8 @@ extension ShapeStyle where Self == Color {
     static var paper: Color { Color("paper") }
     static var surface: Color { Color("surface") }
     static var rust: Color { Color("rust") }
+    /// Text/icons on rust: white in light, paper-dark in dark (white on #E4572E is only 3.7:1).
+    static var onRust: Color { Color("onRust") }
     static var amber: Color { Color("amber") }
     static var steel: Color { Color("steel") }
     static var line: Color { Color("line") }
@@ -87,7 +89,7 @@ struct CloseoutPrimaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.system(.callout, weight: .semibold))
-            .foregroundStyle(.white)
+            .foregroundStyle(.onRust)
             .padding(.horizontal, Theme.Space.xl)
             .frame(maxWidth: .infinity, minHeight: Theme.primaryButtonHeight)
             .background(Capsule().fill(.rust))
@@ -155,10 +157,13 @@ struct SectionHeader: View {
             Text(title).font(.coCardTitle).foregroundStyle(.ink)
             Spacer()
             if let actionTitle, let action {
-                Button(actionTitle, action: action)
-                    .font(.system(.subheadline, weight: .semibold))
-                    .foregroundStyle(.rust)
-                    .frame(minHeight: Theme.minTouchTarget)
+                Button(action: action) {
+                    Text(actionTitle)
+                        .font(.system(.subheadline, weight: .semibold))
+                        .foregroundStyle(.rust)
+                        .frame(minWidth: Theme.minTouchTarget, minHeight: Theme.minTouchTarget, alignment: .trailing)
+                        .contentShape(Rectangle())
+                }
             }
         }
     }
