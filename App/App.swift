@@ -1,3 +1,4 @@
+import SwiftData
 import SwiftUI
 
 @main
@@ -5,10 +6,12 @@ struct CloseoutApp: App {
     @Environment(\.scenePhase) private var scenePhase
     @State private var hasSubscription = false
     @State private var hasLifetime = false
+    private let container = AppSchema.launchContainer()
 
     var body: some Scene {
         WindowGroup {
             RootView()
+                .task { seedProfile() }
                 .environment(\.isPro, hasSubscription || hasLifetime)
                 .subscriptionStatusTask(for: Store.groupID) { state in
                     guard case .success(let statuses) = state else { return }
@@ -22,6 +25,15 @@ struct CloseoutApp: App {
                         hasLifetime = false
                     }
                 }
+        }
+        .modelContainer(container)
+    }
+
+    private func seedProfile() {
+        do {
+            try BusinessProfile.seedIfNeeded(in: container.mainContext)
+        } catch {
+            Log.app.error("Profile seed failed: \(error.localizedDescription)")
         }
     }
 }
