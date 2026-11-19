@@ -73,4 +73,45 @@ final nonisolated class JobFlowUITests: XCTestCase {
         XCTAssertTrue(relaunched.buttons.matching(identifier: "evidenceThumb").firstMatch.waitForExistence(timeout: 5))
         XCTAssertEqual(relaunched.buttons.matching(identifier: "evidenceThumb").count, 2)
     }
+
+    @MainActor
+    func testManualReceiptAndMileageAppearOnJob() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-closeoutResetData", "-closeoutUITesting"]
+        app.launch()
+
+        app.buttons["logFirstJobButton"].tap()
+        let client = app.textFields["clientNameField"]
+        XCTAssertTrue(client.waitForExistence(timeout: 5))
+        client.tap()
+        client.typeText("Ledger Client")
+        app.buttons["saveJobButton"].tap()
+        XCTAssertTrue(app.staticTexts["Ledger Client"].waitForExistence(timeout: 5))
+
+        // Receipt entered by hand (OCR needs a real camera).
+        app.buttons["Scan"].tap()
+        app.buttons["enterReceiptManuallyButton"].tap()
+        let merchant = app.textFields["receiptMerchantField"]
+        XCTAssertTrue(merchant.waitForExistence(timeout: 5))
+        merchant.tap()
+        merchant.typeText("Home Depot")
+        app.buttons["saveReceiptButton"].tap()
+        XCTAssertTrue(app.buttons["Home Depot"].waitForExistence(timeout: 5)
+            || app.staticTexts["Home Depot"].waitForExistence(timeout: 5))
+
+        // Mileage
+        app.buttons.matching(NSPredicate(format: "label == 'Add'")).element(boundBy: 1).tap()
+        let miles = app.textFields["mileageMilesField"]
+        XCTAssertTrue(miles.waitForExistence(timeout: 5))
+        miles.tap()
+        miles.typeText("18.4")
+        app.buttons["saveMileageButton"].tap()
+        XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS '18.4 mi'")).firstMatch
+            .waitForExistence(timeout: 5) || app.buttons.matching(NSPredicate(format: "label CONTAINS '18.4 mi'")).firstMatch
+            .waitForExistence(timeout: 5))
+        let shot = XCTAttachment(screenshot: app.screenshot())
+        shot.name = "job-detail-receipt-mileage"
+        shot.lifetime = .keepAlways
+        add(shot)
+    }
 }
