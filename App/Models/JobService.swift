@@ -14,7 +14,10 @@ enum JobService {
         return job
     }
 
-    static func delete(_ job: Job, in context: ModelContext) throws {
+    /// Deletes the job (children cascade in the database) and the image files they reference.
+    static func delete(_ job: Job, in context: ModelContext, store: EvidenceStore = .shared) throws {
+        job.photos.forEach { store.delete($0.fileName) }
+        job.receipts.forEach { store.delete($0.fileName) }
         context.delete(job)
         try context.save()
     }

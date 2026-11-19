@@ -55,3 +55,16 @@ struct JobCard: View {
         .accessibilityElement(children: .combine)
     }
 }
+
+struct KindBadge: View {
+    let kind: EvidenceKind
+
+    var body: some View {
+        Text(kind == .site ? "site" : kind == .before ? "before" : "after")
+            .font(.coFigure(.caption2))
+            .foregroundStyle(.white)
+            .padding(.horizontal, 6).padding(.vertical, 2)
+            .background(Color.ink.opacity(0.7), in: RoundedRectangle(cornerRadius: 4))
+            .padding(Theme.Space.xs)
+    }
+}

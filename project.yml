@@ -64,6 +64,7 @@ targets:
         APP_STORE_URL: $(APP_STORE_URL)
         # dev | staging | prod, read by AppConfiguration.environment.
         APP_ENV: $(APP_ENV)
+        NSCameraUsageDescription: Closeout uses the camera to photograph finished work and receipts for your job reports.
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
         # Subscription group of this environment's ASC record (Dev: same id as App/StoreKit/Products.storekit).

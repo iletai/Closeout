@@ -27,6 +27,10 @@ struct CloseoutApp: App {
                 }
         }
         .modelContainer(container)
+        // Persist pending edits (e.g. notes) before the app can be killed in the background.
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .background { try? container.mainContext.save() }
+        }
     }
 
     private func seedProfile() {
