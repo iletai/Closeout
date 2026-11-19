@@ -16,7 +16,7 @@ enum AppSchema {
 
 extension AppSchema {
     /// Persistent container for the running app. UI tests pass `-closeoutResetData` to start from an empty store.
-    static func launchContainer() -> ModelContainer {
+    @MainActor static func launchContainer() -> ModelContainer {
         let container: ModelContainer
         // A fresh install has no Application Support yet; creating it avoids noisy CoreData stat errors.
         try? FileManager.default.createDirectory(at: .applicationSupportDirectory, withIntermediateDirectories: true)
@@ -26,7 +26,13 @@ extension AppSchema {
             fatalError("Cannot open the database: \(error)")
         }
         if ProcessInfo.processInfo.arguments.contains("-closeoutResetData") {
-            do { try container.erase() } catch { Log.app.error("Reset failed: \(error.localizedDescription)") }
+            do {
+                try container.mainContext.delete(model: Job.self)
+                try container.mainContext.delete(model: BusinessProfile.self)
+                try container.mainContext.save()
+            } catch {
+                Log.app.error("Reset failed: \(error.localizedDescription)")
+            }
         }
         return container
     }
