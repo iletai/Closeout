@@ -10,6 +10,7 @@ struct JobDetailView: View {
     @State private var showingDelete = false
     @State private var captureMode: CaptureEvidenceView.Mode?
     @State private var showingMileage = false
+    @State private var showingReport = false
     @State private var selectedReceipt: Receipt?
     @State private var selectedMileage: MileageEntry?
     @State private var selectedPhoto: EvidencePhoto?
@@ -45,6 +46,12 @@ struct JobDetailView: View {
         .sheet(isPresented: $showingEdit) { JobFormView(job: job) }
         .sheet(item: $captureMode) { CaptureEvidenceView(job: job, initialMode: $0) }
         .sheet(isPresented: $showingMileage) { MileageFormView(job: job) }
+        .sheet(isPresented: $showingReport) { ReportPreviewView(job: job) }
+        .bottomBar {
+            Button("Preview report", systemImage: "doc.text") { showingReport = true }
+                .buttonStyle(.closeoutPrimary)
+                .accessibilityIdentifier("previewReportButton")
+        }
         .sheet(item: $selectedReceipt) { ReceiptEditView(receipt: $0) }
         .sheet(item: $selectedMileage) { MileageFormView(job: job, entry: $0) }
         .sheet(item: $selectedPhoto) { PhotoDetailView(photo: $0) }
