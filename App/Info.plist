@@ -26,6 +26,8 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Closeout uses the camera to photograph finished work and receipts for your job reports.</string>
 	<key>SUBSCRIPTION_GROUP_ID</key>
 	<string>$(SUBSCRIPTION_GROUP_ID)</string>
 	<key>UILaunchScreen</key>

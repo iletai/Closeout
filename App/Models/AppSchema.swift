@@ -30,6 +30,7 @@ extension AppSchema {
                 try container.mainContext.delete(model: Job.self)
                 try container.mainContext.delete(model: BusinessProfile.self)
                 try container.mainContext.save()
+                EvidenceStore.shared.removeAll()
             } catch {
                 Log.app.error("Reset failed: \(error.localizedDescription)")
             }
