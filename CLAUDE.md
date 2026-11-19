@@ -2,11 +2,11 @@
 
 ## What this app is
 
-<!-- One paragraph: what Closeout does and for whom. -->
+Closeout is an offline job-report app for solo tradespeople: per-job photos, OCR-prefilled receipts, manual mileage, and a one-page PDF report to share. Free tier caps 4 photos per job; Closeout Pro (StoreKit 2: `pro.yearly`, `pro.lifetime`) unlocks unlimited photos, branding, custom mileage rate and CSV export. SwiftData, no backend, no third-party dependencies. Design tokens: `App/Theme/Theme.swift`.
 
 ## Architecture
 
-- `App/` — SwiftUI app target. `Features/<Name>/` per screen.
+- `App/` — SwiftUI app target, grouped per feature: `Jobs/`, `Evidence/`, `Receipts/`, `Mileage/`, `Report/`, `Settings/`, `Models/`, `StoreKit/`, `Theme/`.
 - `Packages/` — local Swift packages (add to `project.yml` `packages:` + target `dependencies:`).
 - Own libraries (navigation, update prompt, StoreKit): see skill `iletai-libs`.
 

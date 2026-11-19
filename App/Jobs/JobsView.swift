@@ -100,7 +100,7 @@ struct JobsView: View {
             Button { showingNewJob = true } label: {
                 Image(systemName: "plus")
                     .font(.system(.title2, weight: .semibold))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.onRust)
                     .frame(width: 56, height: 56)
                     .background(Circle().fill(.rust))
                     .shadow(color: Color.ink.opacity(0.12), radius: 8, y: 4)

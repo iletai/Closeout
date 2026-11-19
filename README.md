@@ -1,6 +1,6 @@
 # Closeout
 
-<!-- One line: what the app does. -->
+Photograph the job, scan the receipts, log the miles, and hand the client a one-page proof-of-work PDF. Local-only (SwiftData), native frameworks only.
 
 ## Setup
 
