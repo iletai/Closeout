@@ -1,0 +1,56 @@
+[
+  {
+    "screenshot": "docs/brand/raw/vi/01-jobs.png",
+    "title": "Mọi công việc một chỗ",
+    "subtitle": "Đang mở, đã đóng, kèm tổng tiền",
+    "gradient_custom": "#D4500F,#C2410C,#9A3309",
+    "device": "iphone-17-pro",
+    "size_key": "6.9-alt",
+    "filename": "01-jobs.png"
+  },
+  {
+    "screenshot": "docs/brand/raw/vi/02-job-detail.png",
+    "title": "Ảnh bằng chứng trước và sau",
+    "subtitle": "Chú thích và nhãn cho mỗi ảnh",
+    "gradient_custom": "#222D38,#12181F,#0B0F14",
+    "device": "iphone-17-pro",
+    "size_key": "6.9-alt",
+    "filename": "02-job-detail.png"
+  },
+  {
+    "screenshot": "docs/brand/raw/vi/03-receipt.png",
+    "title": "Quét hóa đơn trong vài giây",
+    "subtitle": "Tự điền cửa hàng, ngày, tổng tiền",
+    "gradient_custom": "#3A7076,#2F5D62,#23474B",
+    "device": "iphone-17-pro",
+    "size_key": "6.9-alt",
+    "filename": "03-receipt.png"
+  },
+  {
+    "screenshot": "docs/brand/raw/vi/04-report.png",
+    "title": "Báo cáo công việc một trang",
+    "subtitle": "Gửi PDF trước khi rời đi",
+    "gradient_custom": "#FFC24D,#FFB020,#E69A10",
+    "device": "iphone-17-pro",
+    "size_key": "6.9-alt",
+    "filename": "04-report.png"
+  },
+  {
+    "screenshot": "docs/brand/raw/vi/05-settings.png",
+    "title": "Không tài khoản. Chạy offline.",
+    "subtitle": "Dữ liệu ở lại trên iPhone",
+    "gradient_custom": "#FFFFFF,#F7F5F0,#E9E4D8",
+    "device": "iphone-17-pro",
+    "size_key": "6.9-alt",
+    "filename": "05-settings.png"
+  },
+  {
+    "screenshot": "docs/brand/raw/vi/06-paywall.png",
+    "title": "Lên Pro khi cần thêm",
+    "subtitle": "Ảnh không giới hạn và logo của bạn",
+    "gradient_custom": "#D4500F,#C2410C,#9A3309",
+    "device": "iphone-17-pro",
+    "size_key": "6.9-alt",
+    "filename": "06-paywall.png"
+  }
+]

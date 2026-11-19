@@ -1,1 +1,24 @@
-Full description: what the app does, for whom, key features.
+Closeout turns a day on the job into proof of work. Photograph the site, scan receipts, log the miles, and hand your client a clean one-page PDF job report before you leave.
+
+Built for electricians, plumbers, HVAC techs, handymen, painters and other solo trades and small crews.
+
+WHAT YOU GET
+- Job records: client, site address, date, open or closed, hourly or fixed price with materials.
+- Evidence photos: take or import photos, add captions, tag them before, after or site. Images are stored on your device.
+- Receipt scanning: scan a receipt and Closeout reads the merchant, date and total. Check and edit anything before saving.
+- Mileage log: add miles per job with start and end labels. No location access needed.
+- One-page PDF job report: job summary, photo sheet, receipts, mileage and totals, with a signature line. Share it or save it to Files.
+
+PRIVATE AND SIMPLE
+- No account, no sign-up, no cloud. Your jobs stay on your device and everything works offline.
+- Receipt text is read on your device.
+
+FREE AND PRO
+Closeout is free to use with unlimited jobs and a limited number of photos per job. Closeout Pro unlocks unlimited photos, your logo and business details on every report, a custom mileage rate and CSV export. Choose a yearly subscription or a one-time lifetime purchase.
+
+Closeout Pro yearly is an auto-renewing subscription. Payment is charged to your Apple Account at confirmation of purchase and renews automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel it in your App Store account settings. Any free trial ends when you subscribe.
+
+Closeout creates a job report, a summary of work done. It is not an invoice, tax document or accounting record, and it does not collect payments.
+
+Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Privacy Policy: https://apps-site-six.vercel.app/apps/closeout/privacy

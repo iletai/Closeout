@@ -14,7 +14,7 @@ struct PaywallView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                SubscriptionStoreView(groupID: Store.groupID) { marketing }
+                storeView
                     .storeButton(.visible, for: .restorePurchases)
                     .storeButton(.visible, for: .policies)
                     .subscriptionStorePolicyDestination(url: AppLinks.terms, for: .termsOfService)
@@ -31,6 +31,19 @@ struct PaywallView: View {
                 if case .success(.success) = result { dismiss() }
             }
         }
+    }
+
+    @ViewBuilder private var storeView: some View {
+        #if DEBUG
+        // SKTestSession (store screenshots) cannot resolve a subscription group; product ids render the same layout.
+        if DemoSeed.isRequested {
+            SubscriptionStoreView(productIDs: ["\(AppConfiguration.bundleIdentifier).pro.yearly"]) { marketing }
+        } else {
+            SubscriptionStoreView(groupID: Store.groupID) { marketing }
+        }
+        #else
+        SubscriptionStoreView(groupID: Store.groupID) { marketing }
+        #endif
     }
 
     private var marketing: some View {

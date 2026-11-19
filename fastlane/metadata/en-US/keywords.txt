@@ -1,1 +1,1 @@
-keyword,app
+proof of work,contractor,receipt scanner,mileage log,tradesperson,plumber,electrician,handyman,HVAC

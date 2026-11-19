@@ -1,1 +1,24 @@
-Mô tả đầy đủ: app làm gì, cho ai, tính năng chính.
+Closeout biến một ngày làm việc thành bằng chứng công việc. Chụp ảnh hiện trường, quét hóa đơn, ghi quãng đường và gửi khách một báo cáo PDF một trang gọn gàng trước khi rời đi.
+
+Dành cho thợ điện, thợ nước, kỹ thuật viên điều hòa, thợ sửa chữa, thợ sơn và các đội thợ nhỏ làm việc độc lập.
+
+BẠN CÓ GÌ
+- Hồ sơ công việc: khách hàng, địa chỉ công trình, ngày làm, đang mở hoặc đã đóng, tính theo giờ hoặc giá trọn gói kèm vật tư.
+- Ảnh bằng chứng: chụp hoặc nhập ảnh, thêm chú thích, gắn nhãn trước, sau hoặc hiện trường. Ảnh được lưu trên thiết bị của bạn.
+- Quét hóa đơn: quét một hóa đơn và Closeout đọc tên cửa hàng, ngày và tổng tiền. Kiểm tra và sửa mọi thông tin trước khi lưu.
+- Nhật ký quãng đường: ghi số dặm cho từng công việc kèm điểm đi và điểm đến. Không cần quyền truy cập vị trí.
+- Báo cáo PDF một trang: tóm tắt công việc, bảng ảnh, hóa đơn, quãng đường và tổng cộng, có dòng chữ ký. Chia sẻ hoặc lưu vào Tệp.
+
+RIÊNG TƯ VÀ ĐƠN GIẢN
+- Không tài khoản, không đăng ký, không đám mây. Công việc nằm trên thiết bị của bạn và mọi thứ chạy được offline.
+- Chữ trên hóa đơn được đọc ngay trên thiết bị.
+
+MIỄN PHÍ VÀ PRO
+Closeout dùng miễn phí với số công việc không giới hạn và số ảnh giới hạn cho mỗi công việc. Closeout Pro mở khóa ảnh không giới hạn, logo và thông tin doanh nghiệp trên mọi báo cáo, đơn giá dặm tùy chỉnh và xuất CSV. Chọn gói theo năm hoặc mua một lần trọn đời.
+
+Closeout Pro theo năm là gói đăng ký tự động gia hạn. Khoản thanh toán được tính vào Tài khoản Apple khi xác nhận mua và tự động gia hạn trừ khi bạn hủy ít nhất 24 giờ trước khi kết thúc kỳ hiện tại. Quản lý hoặc hủy trong cài đặt tài khoản App Store. Thời gian dùng thử miễn phí (nếu có) kết thúc khi bạn đăng ký.
+
+Closeout tạo báo cáo công việc, tức bản tóm tắt công việc đã làm. Đây không phải hóa đơn, chứng từ thuế hay sổ sách kế toán và ứng dụng không thu tiền.
+
+Điều khoản sử dụng (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Chính sách quyền riêng tư: https://apps-site-six.vercel.app/apps/closeout/privacy

@@ -1,1 +1,1 @@
-Phát hành lần đầu.
+Bản đầu tiên: hồ sơ công việc, ảnh bằng chứng, quét hóa đơn, nhật ký quãng đường và báo cáo PDF một trang để chia sẻ hoặc lưu vào Tệp.

@@ -1,1 +1,9 @@
-Explain anything the reviewer needs: demo account, sample data, sandbox purchase steps.
+Closeout needs no account or sign-in. All data stays on the device and the app works offline.
+
+To see the full UI quickly: tap "Log your first job", enter any client name, then Save. On the job screen use "Add" to import photos from the library, "Scan" > "Enter manually" to add a receipt without a camera, "Add" under Mileage for miles, then "Preview report" to see the one-page PDF job report.
+
+The app creates job reports (a summary of work done). It does not create invoices, tax documents or collect payments.
+
+Closeout Pro (Settings > See Pro plans, or tap the lock next to Mileage rate): yearly auto-renewing subscription and a one-time lifetime purchase, testable with a sandbox account. Restore Purchases is on the paywall and in Settings. Terms of Use and Privacy Policy links are on the paywall.
+
+Camera and document scanning need a real device; the Library and manual entry paths cover the same flows. No location permission is requested.

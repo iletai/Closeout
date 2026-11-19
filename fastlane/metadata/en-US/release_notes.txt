@@ -1,1 +1,1 @@
-First release.
+First release: job records, evidence photos, receipt scanning, mileage log and a one-page PDF job report you can share or save to Files.

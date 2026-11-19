@@ -35,6 +35,18 @@ extension AppSchema {
                 Log.app.error("Reset failed: \(error.localizedDescription)")
             }
         }
+        #if DEBUG
+        if DemoSeed.isRequested {
+            do {
+                try container.mainContext.delete(model: Job.self)
+                try container.mainContext.delete(model: BusinessProfile.self)
+                EvidenceStore.shared.removeAll()
+                try DemoSeed.run(in: container.mainContext)
+            } catch {
+                Log.app.error("Demo seed failed: \(error.localizedDescription)")
+            }
+        }
+        #endif
         return container
     }
 }
