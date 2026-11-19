@@ -12,7 +12,7 @@
 
 ## Conventions
 
-- iOS 18+, Swift 6 strict concurrency.
+- iOS 26+, Swift 6 strict concurrency.
 - `project.yml` is the source of truth; run `xcodegen generate` after editing it (`*.xcodeproj` is not committed).
 - Environments Dev / Staging / Prod (Staging uses the Prod backend): schemes `Closeout-Dev`, `Closeout-Staging`, `Closeout`; configs `{Debug,Release}-{Dev,Staging,Prod}`; per-env values only in `Config/{Dev,Staging,Prod}.xcconfig` (+ `Backend-Prod.xcconfig`). Read the env via `AppConfiguration.environment`. Never add schemes/configs outside this set.
 - Secrets only in `.env` (gitignored); non-secret fastlane values in `fastlane/.env.default` + `fastlane/.env.{dev,staging,prod}`.
