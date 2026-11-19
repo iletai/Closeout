@@ -8,7 +8,10 @@ struct JobDetailView: View {
     @Environment(\.modelContext) private var context
     @State private var showingEdit = false
     @State private var showingDelete = false
-    @State private var showingCapture = false
+    @State private var captureMode: CaptureEvidenceView.Mode?
+    @State private var showingMileage = false
+    @State private var selectedReceipt: Receipt?
+    @State private var selectedMileage: MileageEntry?
     @State private var selectedPhoto: EvidencePhoto?
 
     var body: some View {
@@ -17,6 +20,8 @@ struct JobDetailView: View {
                 header
                 totalStrip
                 evidence
+                receipts
+                mileage
                 notes
             }
             .padding(.horizontal, Theme.Space.gutter)
@@ -38,7 +43,10 @@ struct JobDetailView: View {
             }
         }
         .sheet(isPresented: $showingEdit) { JobFormView(job: job) }
-        .sheet(isPresented: $showingCapture) { CaptureEvidenceView(job: job) }
+        .sheet(item: $captureMode) { CaptureEvidenceView(job: job, initialMode: $0) }
+        .sheet(isPresented: $showingMileage) { MileageFormView(job: job) }
+        .sheet(item: $selectedReceipt) { ReceiptEditView(receipt: $0) }
+        .sheet(item: $selectedMileage) { MileageFormView(job: job, entry: $0) }
         .sheet(item: $selectedPhoto) { PhotoDetailView(photo: $0) }
         .confirmationDialog("Delete this job?", isPresented: $showingDelete, titleVisibility: .visible) {
             Button("Delete job", role: .destructive) {
@@ -94,7 +102,7 @@ struct JobDetailView: View {
 
     private var evidence: some View {
         VStack(alignment: .leading, spacing: Theme.Space.s) {
-            SectionHeader(title: "Evidence", actionTitle: "Add") { showingCapture = true }
+            SectionHeader(title: "Evidence", actionTitle: "Add") { captureMode = .photo }
             if job.photos.isEmpty {
                 Text("No photos yet").font(.coSecondary).foregroundStyle(.mutedInk)
             } else {
@@ -111,6 +119,67 @@ struct JobDetailView: View {
                         .accessibilityIdentifier("evidenceThumb")
                     }
                 }
+            }
+        }
+    }
+
+    private var receipts: some View {
+        VStack(alignment: .leading, spacing: Theme.Space.s) {
+            SectionHeader(title: "Receipts", actionTitle: "Scan") { captureMode = .receipt }
+            if job.receipts.isEmpty {
+                Text("No receipts yet").font(.coSecondary).foregroundStyle(.mutedInk)
+            }
+            ForEach(job.receipts.sorted { $0.purchasedAt < $1.purchasedAt }) { receipt in
+                Button { selectedReceipt = receipt } label: {
+                    HStack(alignment: .top) {
+                        VStack(alignment: .leading, spacing: Theme.Space.xs) {
+                            Text(receipt.merchantName.isEmpty ? "Receipt" : receipt.merchantName)
+                                .font(.coBody).foregroundStyle(.ink)
+                            HStack {
+                                Text(receipt.purchasedAt, format: .dateTime.month(.abbreviated).day())
+                                    .font(.coFigure(.caption)).foregroundStyle(.mutedInk)
+                                if receipt.isReimbursable {
+                                    Text("reimbursable").font(.coMicro).foregroundStyle(.steel)
+                                        .padding(.horizontal, 8).padding(.vertical, 2)
+                                        .background(Capsule().fill(Color.steel.opacity(0.12)))
+                                }
+                            }
+                        }
+                        Spacer()
+                        MoneyText(amount: receipt.total, style: .callout).foregroundStyle(.ink)
+                    }
+                    .cardStyle()
+                }
+                .buttonStyle(.plain)
+                .accessibilityElement(children: .combine)
+            }
+        }
+    }
+
+    private var mileage: some View {
+        VStack(alignment: .leading, spacing: Theme.Space.s) {
+            SectionHeader(title: "Mileage", actionTitle: "Add") { showingMileage = true }
+            if job.mileage.isEmpty {
+                Text("No mileage yet").font(.coSecondary).foregroundStyle(.mutedInk)
+            }
+            ForEach(job.mileage.sorted { $0.date < $1.date }) { entry in
+                Button { selectedMileage = entry } label: {
+                    HStack {
+                        VStack(alignment: .leading, spacing: Theme.Space.xs) {
+                            (entry.routeText.isEmpty ? Text("Mileage") : Text(entry.routeText)).font(.coBody).foregroundStyle(.ink)
+                            HStack(spacing: 0) {
+                                Text("\(entry.miles.formatted()) mi × ")
+                                MoneyText(amount: entry.ratePerMile, style: .caption)
+                            }
+                            .font(.coFigure(.caption)).foregroundStyle(.mutedInk)
+                        }
+                        Spacer()
+                        MoneyText(amount: entry.cost, style: .callout).foregroundStyle(.ink)
+                    }
+                    .cardStyle()
+                }
+                .buttonStyle(.plain)
+                .accessibilityElement(children: .combine)
             }
         }
     }

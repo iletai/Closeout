@@ -115,3 +115,12 @@ final class MileageEntry {
         self.ratePerMile = ratePerMile
     }
 }
+
+extension MileageEntry {
+    var cost: Decimal { (Decimal.exact(miles) * ratePerMile).roundedToCents }
+
+    /// "Depot → Alder St", or whichever side is filled in.
+    var routeText: String {
+        [startLabel, endLabel].filter { !$0.isEmpty }.joined(separator: " → ")
+    }
+}
